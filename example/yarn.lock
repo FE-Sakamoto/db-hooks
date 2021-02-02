@@ -3263,10 +3263,10 @@ data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-db-hooks@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/db-hooks/-/db-hooks-0.1.1.tgz#19dda024b40e9da98253132e8c479f304f8399d5"
-  integrity sha512-zhgUQP4zUv6msaWOQVzhREe3kLIw7Ap9pB3ZQnmG8GxdwF8TnAkmV/RyUXd5ihjBINu9RG0lQaidjs6hLNhF9A==
+db-hooks@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.npmjs.org/db-hooks/-/db-hooks-0.1.2.tgz#f06e3cbc4d6cbf1e0434a461fd3b40c594a0a80a"
+  integrity sha512-wMIEEe+LamY/QV96Cn4hjRq/ClaDYtcMdAlfJQs96O2NqsrlTKmKW9uVMVAwyy6uIZK5UH0+yaXsDoKOM+wHjQ==
   dependencies:
     react "^17.0.1"
 
