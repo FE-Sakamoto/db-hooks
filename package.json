@@ -1,0 +1,19 @@
+{
+  "name": "DBHooks",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FE-Sakamoto/DBHooks.git"
+  },
+  "keywords": [],
+  "author": "ycy2077 <bugmaker.yu@gmail.com> (https://github.com/ycy2077)",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.1"
+  }
+}
