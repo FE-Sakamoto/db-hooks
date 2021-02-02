@@ -1,6 +1,6 @@
 {
-  "name": "DBHooks",
-  "version": "0.1.0",
+  "name": "db-hooks",
+  "version": "0.1.1",
   "description": "",
   "main": "./src/index.js",
   "scripts": {
