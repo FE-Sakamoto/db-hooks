@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import {DeepPartial, Tables, DB, AllID} from './types'
+import { Tables, DB, AllID } from './types'
 
 export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
   const db = initDB
@@ -31,16 +31,27 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
         updaters.delete(key)
       }
     }, [])
+    return data
   }
 
-  function updateDB(data: DeepPartial<DB<T>>){
+  function updateDB(data: any){
     merge(db, data)
+    console.log({db})
     updaters.forEach(updater => updater())
+  }
+
+  function updateRow<TableName extends keyof T>(tableName: TableName, id: number, data: Partial<DB<T>[TableName][number]>) {
+    return updateDB({
+      [tableName]: {
+        [id]: data
+      }
+    })
   }
 
   return {
     useDB,
-    updateDB
+    updateDB,
+    updateRow,
   }
 }
 
