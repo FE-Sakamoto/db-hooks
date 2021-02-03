@@ -40,7 +40,7 @@
     "@tarojs/react": "3.0.25",
     "@tarojs/runtime": "3.0.25",
     "@tarojs/taro": "3.0.25",
-    "db-hooks": "^0.1.6",
+    "db-hooks": "^0.1.7",
     "normalizr": "^3.6.1",
     "react": "^16.10.0",
     "react-dom": "^16.10.0"

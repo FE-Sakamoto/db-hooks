@@ -3263,12 +3263,10 @@ data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-db-hooks@^0.1.6:
-  version "0.1.6"
-  resolved "https://registry.npm.taobao.org/db-hooks/download/db-hooks-0.1.6.tgz?cache=0&sync_timestamp=1612313530493&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdb-hooks%2Fdownload%2Fdb-hooks-0.1.6.tgz#0a1e7823ea1725473d3bb888f6039877d65529b3"
-  integrity sha1-Ch54I+oXJUc9O7iI9gOYd9ZVKbM=
-  dependencies:
-    react "^17.0.1"
+db-hooks@^0.1.7:
+  version "0.1.7"
+  resolved "https://registry.npm.taobao.org/db-hooks/download/db-hooks-0.1.7.tgz#0fae31d9ca67da9bd4f8bed176dc2ff375208f95"
+  integrity sha1-D64x2cpn2pvU+L7Rdtwv83Ugj5U=
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
@@ -7840,14 +7838,6 @@ react@^16.10.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-
-react@^17.0.1:
-  version "17.0.1"
-  resolved "https://registry.npm.taobao.org/react/download/react-17.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact%2Fdownload%2Freact-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
-  integrity sha1-bgYAQWvVdXTj+G2S7bo9kAhyYSc=
-  dependencies:
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
 
 read-cache@^1.0.0:
   version "1.0.0"
