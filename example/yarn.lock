@@ -3263,10 +3263,10 @@ data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-db-hooks@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.npmjs.org/db-hooks/-/db-hooks-0.1.3.tgz#878ec695cac6686d384d15a4b9e6be4e6f84a7ba"
-  integrity sha512-E6t7Bbtkf91BpSD0UcdtgRGSIQYHxhahci2Wr9Wfq0gVGJ9RZNTrbs6/GX7QxIvym0viinh1v4XdaOzxN6Fjzg==
+db-hooks@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.npm.taobao.org/db-hooks/download/db-hooks-0.1.4.tgz?cache=0&sync_timestamp=1612268850816&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdb-hooks%2Fdownload%2Fdb-hooks-0.1.4.tgz#4cf90ecdcecc898ab2fa928ba7ef6b246f01cc85"
+  integrity sha1-TPkOzc7MiYqy+pKLp+9rJG8BzIU=
   dependencies:
     react "^17.0.1"
 

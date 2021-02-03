@@ -131,5 +131,13 @@ const Cell: React.FC<{id: number}> = ({id}) => {
 
 
 
+## 示例
+
+```shell
+cd example
+npm i
+npm run dev:h5
+```
+
 
 

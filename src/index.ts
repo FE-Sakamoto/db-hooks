@@ -36,7 +36,6 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
 
   function updateDB(data: any){
     merge(db, data)
-    console.log({db})
     updaters.forEach(updater => updater())
   }
 
@@ -57,8 +56,8 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
 
 
 export function merge(target: object, ...arg: object[]) {
-  return arg.reduce((acc, cur) => {
-    return Object.keys(cur).reduce((subAcc, key) => {
+  return arg.reduce((acc, cur: any) => {
+    return Object.keys(cur).reduce((subAcc: any, key) => {
       const srcVal = cur[key]
       if (Array.isArray(srcVal)) {
         // series: []，下层数组直接赋值
