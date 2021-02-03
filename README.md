@@ -10,7 +10,29 @@
 
 `db-hooks`是一款小巧的[范式化State](https://redux.js.org/faq/organizing-state#organizing-state)管理工具(推荐使用[normalizr](https://github.com/paularmstrong/normalizr)范式化数据)，完美解决的本地数据不同步的问题。如果你厌烦了不停处理项目中各种数据同步问题，那么不妨来试试`db-hooks`能完美满足你的需求。
 
+## 场景
 
+常见数据不同步场景如下
+
+```jsx
+// PageA (article list)
+data: [{article1}, {article2}, {article3}...]
+```
+
+```jsx
+// 点击article2进入 article2详情页面 PageB(artice2 detail)
+data: {article2}
+```
+
+这时候在pageB对article2进行点赞(点赞数+1)等副作用操作只会影响当前PageB里的article数据
+
+返回PageA article2显示的点赞数及点赞状态都与PageB中的不一致，**产生这种现象的原因就是同一个article数据存在了多份，副作用操作只能影响到当前page的article。**
+
+解决这种问题的思路就是将所有视为统一类型的数据仅保留一份。实现方式如下：
+
+1. 本地维护一个对象充当数据库
+2. 页面获取数据后不直接持有数据，而是拿着数据去更新数据库，然后仅保留id，用id去数据库查找数据。
+3. 不同组件编辑数据会直接修改数据库中的数据，所有引用该数据的组件都会触发更新。
 
 ## 特性
 1.  使用hooks实现，零依赖，零学习成本。
@@ -22,7 +44,10 @@
 npm i db-hooks --save
 ```
 
+
+
 ## 使用
+
 #### 1.定义模型
 ```javascript
 // 服务器返回的json
