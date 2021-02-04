@@ -1,4 +1,4 @@
-export declare type ID = string | number;
+export declare type ID = number | string;
 export interface Schema {
     id: ID;
 }
@@ -12,6 +12,6 @@ export declare type DB<T extends Tables> = {
 };
 export declare type AllID<T extends Tables> = {
     [key in keyof T]: {
-        [id in ID]: number;
+        [key in ID]: number;
     };
 };

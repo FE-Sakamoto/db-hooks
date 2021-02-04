@@ -1,7 +1,7 @@
 import {createDB} from 'db-hooks'
-import {Article, User} from './types'
+import { Article, User } from './types'
 
-export const {useDB, updateDB, updateRow} = createDB<{
+export const {useDB, updateDB, editDB} = createDB<{
   article: Article,
   user: User
 }>({

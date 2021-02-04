@@ -1,4 +1,4 @@
-export type ID = string | number
+export type ID = number | string
 
 export interface Schema {
   id: ID
@@ -16,6 +16,7 @@ export type DB<T extends Tables> = {
 
 export type AllID<T extends Tables> = {
   [key in keyof T]: {
-    [id in ID]: number
+    [key in ID]: number
   }
 }
+  

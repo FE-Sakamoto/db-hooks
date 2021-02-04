@@ -4,7 +4,7 @@ import { View, ITouchEvent, Button, Text } from '@tarojs/components'
 import {normalize} from 'normalizr'
 import {db} from '../../mock'
 import {article} from '../../types'
-import { useDB, updateDB, updateRow } from '../../db'
+import { useDB, updateDB, editDB } from '../../db'
 import { useState } from 'react';
 
 
@@ -21,9 +21,9 @@ export const Cell: React.FC<{id: number}> = ({id}) => {
   const user = useDB('user', article.user)
   const onLikeClick = useCallback((event: ITouchEvent)=>{
     event.stopPropagation()
-    updateRow('article', id, {
-      likeNum: article.like? article.likeNum - 1: article.likeNum + 1,
-      like: !article.like,
+    editDB(db=>{
+      db.article[id].likeNum = article.like? article.likeNum - 1: article.likeNum + 1,
+      db.article[id].like = !article.like
     })
   }, [article])
   return <View className='article-cell' style={{fontSize: '20px', color:'#666666', marginBottom: '20px'}}>

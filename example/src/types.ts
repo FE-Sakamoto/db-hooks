@@ -1,5 +1,6 @@
 import { schema } from 'normalizr'
 
+
 type SchemaID = number
 
 export interface Article {

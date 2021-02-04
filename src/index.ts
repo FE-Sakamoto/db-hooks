@@ -6,9 +6,9 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
   type TableName = keyof T
   let db = initDB
   const allID = initId
-  const updaters = new Map<number, [TableName, ID, T[keyof T], React.Dispatch<React.SetStateAction<T[keyof T]>>]>()
+  const updaters = new Map<number, [TableName, ID, any, React.Dispatch<React.SetStateAction<any>>]>()
   let index = 0
-  function useDB(tableName: TableName, id: ID) {
+  function useDB<T extends TableName>(tableName: T, id: ID) {
     const [data, setData] = useState(db[tableName][id])
 
     useEffect(()=>{
