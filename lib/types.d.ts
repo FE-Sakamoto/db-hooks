@@ -1,16 +1,17 @@
+export declare type ID = string | number;
 export interface Schema {
-    id: number;
+    id: ID;
 }
 export declare type Tables = {
     [key: string]: Schema;
 };
 export declare type DB<T extends Tables> = {
     [key in keyof T]: {
-        [id: number]: T[key];
+        [id in ID]: T[key];
     };
 };
 export declare type AllID<T extends Tables> = {
     [key in keyof T]: {
-        [key: number]: number;
+        [id in ID]: number;
     };
 };

@@ -3264,9 +3264,9 @@ data-urls@^1.1.0:
     whatwg-url "^7.0.0"
 
 db-hooks@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.npm.taobao.org/db-hooks/download/db-hooks-0.1.7.tgz#0fae31d9ca67da9bd4f8bed176dc2ff375208f95"
-  integrity sha1-D64x2cpn2pvU+L7Rdtwv83Ugj5U=
+  version "0.1.10"
+  resolved "https://registry.npm.taobao.org/db-hooks/download/db-hooks-0.1.10.tgz#4bbca0a2f3809353eeca29c473480bb27ce688b0"
+  integrity sha1-S7ygovOAk1PuyinEc0gLsnzmiLA=
 
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
