@@ -100,7 +100,7 @@ export const article = new schema.Entity('article', {
 // 初始化数据库
 import {createDB} from 'db-hooks'
 
-export const {useDB, updateDB, updateRow} = createDB<{
+export const {useDB, updateDB, editDB} = createDB<{
   article: Article,
   user: User
 }>({
@@ -134,9 +134,9 @@ const Cell: React.FC<{id: number}> = ({id}) => {
   const user = useDB('user', article.user)
   const onLikeClick = useCallback((event: ITouchEvent)=>{
     event.stopPropagation()
-    updateRow('article', id, {
-      likeNum: article.like? article.likeNum - 1: article.likeNum + 1,
-      like: !article.like,
+    editDB(db=>{
+      db.article[id].likeNum = article.like? article.likeNum - 1: article.likeNum + 1,
+      db.article[id].like = !article.like
     })
   }, [article])
   return <View className='article-cell' style={{fontSize: '20px', color:'#666666', marginBottom: '20px'}}>
