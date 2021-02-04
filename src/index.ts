@@ -1,29 +1,25 @@
 import { useState, useEffect } from 'react'
-import { Tables, DB, AllID } from './types'
+import { Tables, DB, AllID, ID } from './types'
+import produce, { Draft } from 'immer'
 
 export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
-  const db = initDB
+  type TableName = keyof T
+  let db = initDB
   const allID = initId
-  const updaters = new Map<number, ()=>void>()
+  const updaters = new Map<number, [TableName, ID, T[keyof T], React.Dispatch<React.SetStateAction<T[keyof T]>>]>()
   let index = 0
-  function useDB<TableName extends keyof T>(tableName: TableName, id: number) {
+  function useDB(tableName: TableName, id: ID) {
     const [data, setData] = useState(db[tableName][id])
 
-    function updater() {
-      const newData = db[tableName][id]
-      if (newData !== data) {
-        setData(newData)
-      }
-    }
-
     useEffect(()=>{
-      allID[tableName][id] = allID[tableName][id] || 0
-      allID[tableName][id] += 1
+      // @ts-ignore
+      allID[tableName][id] = allID[tableName][id] || 0; allID[tableName][id] += 1
 
       const key = index++
-      updaters.set(key, updater)
+      updaters.set(key, [tableName, id, data, setData])
 
       return ()=> {
+        // @ts-ignore
         allID[tableName][id] -= 1
         if (allID[tableName][id] === 0) {
           delete db[tableName][id]
@@ -34,23 +30,30 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
     return data
   }
 
-  function updateDB(data: any){
-    merge(db, data)
-    updaters.forEach(updater => updater())
-  }
-
-  function updateRow<TableName extends keyof T>(tableName: TableName, id: number, data: Partial<DB<T>[TableName][number]>) {
-    return updateDB({
-      [tableName]: {
-        [id]: data
+  function reRender(){
+    updaters.forEach(updater => {
+      const newData = db[updater[0]][updater[1]]
+      if (newData !== updater[2]) {
+        updater[3](newData)
       }
     })
   }
 
+  function updateDB(dbData: any){
+    merge(db, dbData)
+    reRender()
+  }
+
+
+  function editDB(edit: (db: Draft<DB<T>>)=>void){
+    db = produce(db, edit)
+    reRender()
+  }
+
   return {
     useDB,
+    editDB,
     updateDB,
-    updateRow,
   }
 }
 
