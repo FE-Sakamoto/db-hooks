@@ -30,6 +30,10 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
     return data
   }
 
+  function snapshotDB<T extends TableName>(tableName: T, id: ID){
+    return db[tableName][id]
+  }
+
   function reRender(){
     updaters.forEach(updater => {
       const newData = db[updater[0]][updater[1]]
@@ -54,6 +58,7 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
     useDB,
     editDB,
     updateDB,
+    snapshotDB,
   }
 }
 

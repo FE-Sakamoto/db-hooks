@@ -156,6 +156,17 @@ const Cell: React.FC<{id: number}> = ({id}) => {
 
 
 
+`snapshotDB`
+
+```tsx
+// 可以使用snapshotDB查看数据库快照，可以在非顶层函数中使用.
+for（let id of articleIds）{
+  cosnt article = snapshotDB('article', id)
+}
+```
+
+
+
 ## 示例
 
 ```shell
