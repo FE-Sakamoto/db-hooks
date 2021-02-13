@@ -1,6 +1,6 @@
 import React, {useState, useCallback} from 'react'
 import { View, Input, Button } from '@tarojs/components'
-import {useDB, editDB, snapshotDB} from '../../db'
+import {useDB, editDB} from '../../db'
 
 const Index: React.FC = () => {
   const userId = 22
@@ -8,7 +8,10 @@ const Index: React.FC = () => {
   const [nickName, setNickName] = useState(user?.nickname)
   const editNickName = useCallback(()=>{
     editDB((db)=>{
-      db.user[userId].nickname = nickName
+      db.user[userId] = {
+        ...db.user[userId],
+        nickname: nickName,
+      }
     })
   }, [nickName])
   return (

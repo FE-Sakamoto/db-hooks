@@ -23,7 +23,6 @@
   "author": "ycy2077 <bugmaker.yu@gmail.com> (https://github.com/ycy2077)",
   "license": "MIT",
   "dependencies": {
-    "immer": "^8.0.1"
   },
   "peerDependencies": {
     "react": "^17.0.1"

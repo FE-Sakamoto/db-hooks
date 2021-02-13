@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { Tables, DB, AllID, ID } from './types'
-import produce, { Draft } from 'immer'
 
 export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
   type TableName = keyof T
@@ -49,8 +48,8 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
   }
 
 
-  function editDB(edit: (db: Draft<DB<T>>)=>void){
-    db = produce(db, edit)
+  function editDB(edit: (db: DB<T>)=>DB<T>){
+    db = edit(db)
     reRender()
   }
 
