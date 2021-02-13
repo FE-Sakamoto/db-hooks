@@ -3263,6 +3263,13 @@ data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
+db-hooks@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.npm.taobao.org/db-hooks/download/db-hooks-0.3.0.tgz?cache=0&sync_timestamp=1613177104457&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdb-hooks%2Fdownload%2Fdb-hooks-0.3.0.tgz#fded0dda68341f4dd6bc542c5c1dc1cfac3f9fee"
+  integrity sha1-/e0N2mg0H03WvFQsXB3Bz6w/n+4=
+  dependencies:
+    immer "^8.0.1"
+
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.npm.taobao.org/debug/download/debug-2.6.9.tgz?cache=0&sync_timestamp=1607566537361&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdebug%2Fdownload%2Fdebug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -5025,6 +5032,11 @@ image-size@~0.5.0:
   version "0.5.5"
   resolved "https://registry.npm.taobao.org/image-size/download/image-size-0.5.5.tgz?cache=0&sync_timestamp=1603731285656&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fimage-size%2Fdownload%2Fimage-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
   integrity sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=
+
+immer@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.npm.taobao.org/immer/download/immer-8.0.1.tgz?cache=0&sync_timestamp=1611143233118&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fimmer%2Fdownload%2Fimmer-8.0.1.tgz#9c73db683e2b3975c424fb0572af5889877ae656"
+  integrity sha1-nHPbaD4rOXXEJPsFcq9YiYd65lY=
 
 import-cwd@^2.0.0:
   version "2.1.0"
