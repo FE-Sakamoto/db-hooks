@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Tables, DB, AllID, ID } from './types'
 import produce, { Draft } from 'immer'
+import {merge} from 'lodash'
 
 export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
   type TableName = keyof T
@@ -44,14 +45,12 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
   }
 
   function updateDB(dbData: any){
-    merge(db, dbData)
+    db = produce(db, draft => {
+      merge(draft, dbData)
+    })
     reRender()
   }
 
-  function modifyDB(modify: (db: DB<T>)=>DB<T>) {
-    db = modify(db)
-    reRender()
-  }
 
   function editDB(edit: (db: Draft<DB<T>>)=>void){
     db = produce(db, edit)
@@ -62,31 +61,7 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
     useDB,
     editDB,
     updateDB,
-    modifyDB,
     snapshotDB,
   }
 }
 
-
-export function merge(target: object, ...arg: object[]) {
-  return arg.reduce((acc, cur: any) => {
-    return Object.keys(cur).reduce((subAcc: any, key) => {
-      const srcVal = cur[key]
-      if (Array.isArray(srcVal)) {
-        // series: []，下层数组直接赋值
-        subAcc[key] = srcVal.map((item, idx) => {
-          if (Object.prototype.toString.call(item) === '[object Object]') {
-            const curAccVal = subAcc[key] ? subAcc[key] : []
-            return merge({}, curAccVal[idx] ? curAccVal[idx] : {}, item)
-          }
-          return item
-        })
-      } else if (srcVal !== null && typeof srcVal === 'object') {
-        subAcc[key] = merge({}, subAcc[key] ? subAcc[key] : {}, srcVal)
-      } else {
-        subAcc[key] = srcVal
-      }
-      return subAcc
-    }, acc)
-  }, target)
-}
