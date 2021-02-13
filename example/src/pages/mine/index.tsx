@@ -1,6 +1,6 @@
 import React, {useState, useCallback} from 'react'
 import { View, Input, Button } from '@tarojs/components'
-import {useDB, editDB} from '../../db'
+import {useDB, editDB, snapshotDB} from '../../db'
 
 const Index: React.FC = () => {
   const userId = 22

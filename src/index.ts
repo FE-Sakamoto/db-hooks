@@ -21,7 +21,7 @@ export function createDB<T extends Tables>(initDB: DB<T>, initId: AllID<T>){
       return ()=> {
         // @ts-ignore
         allID[tableName][id] -= 1
-        if (allID[tableName][id] === 0) {
+        if (allID[tableName][id] === 0 && db[tableName][id]) {
           delete db[tableName][id]
         }
         updaters.delete(key)
