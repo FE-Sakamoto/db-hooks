@@ -1,6 +1,6 @@
 {
   "name": "db-hooks",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -22,8 +22,7 @@
   ],
   "author": "ycy2077 <bugmaker.yu@gmail.com> (https://github.com/ycy2077)",
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^17.0.1"
   },
